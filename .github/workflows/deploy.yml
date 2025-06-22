@@ -1,0 +1,26 @@
+name: 🚀 Deploy to VPS
+
+on:
+  push:
+    branches: [main]  # Change to your branch name if it's different
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Checkout code
+        uses: actions/checkout@v3
+
+      - name: 🔐 Deploy to VPS via SSH
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.VPS_KEY }}
+          script: |
+            cd /home/satri/apps/vpstesting_next
+            git pull origin main
+            npm install
+            npm run build
+            pm2 restart groq-chatbot
