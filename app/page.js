@@ -71,7 +71,7 @@ export default function Home() {
               <h1 className="text-2xl font-bold bg-gradient-to-r from-white to-red-200 bg-clip-text text-transparent">
                 Groq Chatbot
               </h1>
-              <p className="text-sm text-gray-400">Powered by lightning-fast AI</p>
+              <p className="text-sm text-gray-400">Pratik ko ai</p>
             </div>
           </div>
         </div>
